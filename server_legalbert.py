@@ -1,13 +1,15 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from transformers import AutoTokenizer, AutoModel
 import torch
 
 app = FastAPI()
-
 MODEL_NAME = "ai-forever/ruLegalBert-base"
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModel.from_pretrained(MODEL_NAME)
+token = os.getenv("HUGGINGFACE_HUB_TOKEN")
+
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, token=token)
+model = AutoModel.from_pretrained(MODEL_NAME, token=token)
 
 class EmbeddingRequest(BaseModel):
     text: str

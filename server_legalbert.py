@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 
 app = FastAPI()
-MODEL_NAME = "cointegrated/rubert-tiny2"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 token = os.getenv("HUGGINGFACE_HUB_TOKEN")
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, token=token)

@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 
 app = FastAPI()
-MODEL_NAME = "ai-forever/ruLegalBert-base"
+MODEL_NAME = "ai-forever/ruLegalBERT"  # <-- правильный идентификатор модели
 token = os.getenv("HUGGINGFACE_HUB_TOKEN")
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, token=token)
